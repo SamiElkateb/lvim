@@ -36,6 +36,10 @@ for _, language in ipairs({ "typescriptreact", "javascriptreact" }) do
       name = "Debug in Chrome",
       request = "launch",
       url = "http://localhost:3000",
+      skipFiles = {
+          "${workspaceFolder}/<node_internals>/**",
+          "${workspaceFolder}/node_modules/**",
+      }
     },
   }
 end
@@ -71,6 +75,10 @@ for _, language in ipairs({ "typescript", "javascript" }) do
       name = "Debug in Chrome",
       request = "launch",
       url = "http://localhost:3000",
+      skipFiles = {
+          "${workspaceFolder}/<node_internals>/**",
+          "${workspaceFolder}/node_modules/**",
+      };
     },
   }
 end
