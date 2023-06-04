@@ -40,6 +40,11 @@ local mappings = {
     P = { "<cmd>lua require'telescope'.extensions.projects.projects{}<CR>", "Projects" },
     n = { "<cmd>Telescope neoclip<CR>", "Clipboard" }
   },
+
+  d = {
+    name = 'Debug',
+    T = { ":lua require('dap').set_breakpoint(vim.fn.input('Breakpoint condition: '))<CR>", "Condition" },
+  },
 }
 
 whichkey.register(mappings, opts)

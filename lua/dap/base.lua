@@ -28,3 +28,4 @@ lvim.builtin.dap.active = true
 --         size = 10
 --       } }
 require('dap.javascript')
+require('dap.python')
