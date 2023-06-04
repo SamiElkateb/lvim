@@ -12,6 +12,7 @@ require('dap.base')
 require('lsp.base')
 
 require('format.base')
+require('lint.base')
 
 require('standard.commands')
 

@@ -1,8 +1,13 @@
 lvim.lsp.installer.setup.ensure_installed = {
-  "pyright",
+  -- javascript
+  "tsserver",
   "jsonls",
   "eslint",
-  "tsserver",
+
+  -- python
+  "pyright",
+
+  -- java
   "jdtls"
 }
 require('lsp.commands')
