@@ -44,4 +44,5 @@ lvim.plugins = {
     build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
   },
   { "mfussenegger/nvim-dap-python" },
+  { "tpope/vim-surround" },
 }
