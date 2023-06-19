@@ -38,7 +38,8 @@ local mappings = {
   s = {
     name = 'Search',
     P = { "<cmd>lua require'telescope'.extensions.projects.projects{}<CR>", "Projects" },
-    n = { "<cmd>Telescope neoclip<CR>", "Clipboard" }
+    n = { "<cmd>Telescope neoclip<CR>", "Clipboard" },
+    g = {  "<cmd>ChatGPT<CR>", "ChatGPT"}
   },
 
   d = {
