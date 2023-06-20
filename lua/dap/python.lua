@@ -15,7 +15,7 @@ local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 
 dappython.setup(mason_path .. "packages/debugpy/venv/bin/python")
 
-local projectconfig_status, projectconfig = pcall(require, "helpers.projectconfig")
+local projectconfig_status, projectconfig = pcall(require, "helpers.project-config")
 if not projectconfig_status then
   return
 end
@@ -27,16 +27,15 @@ table.insert(dap.configurations.python, {
   type = "python",
   request = "attach",
   connect = {
-    host = current_config.debugger_host,
-    port = current_config.debugger_port
+    host = current_config.debugger.host,
+    port = current_config.debugger.port
   },
   justMyCode = true,
   pythonArgs = { "-Xfrozen_modules=off" },
   pathMappings = {
     {
-      localRoot = current_config.debugger_local_root,
-      remoteRoot = current_config.debugger_remote_root
+      localRoot = current_config.debugger.local_root,
+      remoteRoot = current_config.debugger.remote_root
     }
   }
 })
-

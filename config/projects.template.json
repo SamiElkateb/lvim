@@ -1,15 +1,20 @@
 [
   {
-    "path": "",
-    "build_command": "yarn build",
+    "paths": [""],
+    "cmd_from_root": true,
+    "dev": "yarn dev",
+    "install": "yarn",
+    "test": "yarn test",
     "worktree_switch_destination_cmd": "",
-    "debugger_skip_files": [
-      "${workspaceFolder}/<node_internals>/**",
-      "${workspaceFolder}/node_modules/**"
-    ],
-    "debugger_host": "localhost",
-    "debugger_port": 3000,
-    "debugger_local_root": "${workspaceFolder}",
-    "debugger_remote_root": ".",
+    "debugger": {
+      "skip_files": [
+        "${workspaceFolder}/<node_internals>/**",
+        "${workspaceFolder}/node_modules/**"
+      ],
+      "host": "localhost",
+      "port": 3000,
+      "local_root": "${workspaceFolder}",
+      "remote_root": "."
+    }
   }
 ]
