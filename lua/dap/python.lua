@@ -15,21 +15,28 @@ local mason_path = vim.fn.glob(vim.fn.stdpath "data" .. "/mason/")
 
 dappython.setup(mason_path .. "packages/debugpy/venv/bin/python")
 
--- lua print(lvim.lazy.opts.root)
+local projectconfig_status, projectconfig = pcall(require, "helpers.projectconfig")
+if not projectconfig_status then
+  return
+end
+
+local current_config = projectconfig.get_config_for_cwd()
+
 table.insert(dap.configurations.python, {
   name = "Python: Remote Attach",
   type = "python",
   request = "attach",
   connect = {
-    host = "localhost",
-    port = "5678"
+    host = current_config.debugger_host,
+    port = current_config.debugger_port
   },
   justMyCode = true,
   pythonArgs = { "-Xfrozen_modules=off" },
   pathMappings = {
     {
-      localRoot = "${workspaceFolder}",
-      remoteRoot = "."
+      localRoot = current_config.debugger_local_root,
+      remoteRoot = current_config.debugger_remote_root
     }
   }
 })
+
