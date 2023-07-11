@@ -33,6 +33,21 @@ vim.api.nvim_create_user_command(
 )
 
 vim.api.nvim_create_user_command(
+  'RunBuild',
+  function()
+    local filepath = vim.api.nvim_buf_get_name(0)
+    local curr_config = projectconfig.get_config_for(filepath)
+    if curr_config.build == '' then return end
+    local dirpath = filepath:match("(.*/)")
+    local path = curr_config.cmd_from_root and curr_config.path or dirpath
+    vim.api.nvim_command(':! tmux new-window -t 4 -n "Build" -d &>/dev/null')
+    vim.api.nvim_command(':! tmux send-keys -t :4 "cd ' .. path .. ' &&' .. curr_config.build .. '" C-m')
+  end,
+  {}
+)
+
+
+vim.api.nvim_create_user_command(
   'RunInstall',
   function()
     local filepath = vim.api.nvim_buf_get_name(0)
@@ -63,7 +78,8 @@ vim.api.nvim_create_user_command(
 local mappings = {
   l = {
     name = "LSP",
-    b = { '<cmd>RunDev<cr><cr>', "Run dev" },
+    b = { '<cmd>RunBuild<cr><cr>', "Run build" },
+    D = { '<cmd>RunDev<cr><cr>', "Run dev" },
     B = { '<cmd>RunInstall<cr><cr>', "Install" },
     t = { '<cmd>RunTest<cr><cr>', "Test" },
   },

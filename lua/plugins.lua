@@ -60,12 +60,23 @@ lvim.plugins = {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup({api_key_cmd = "ansible-vault view ".. vim.env.HOME .."/.vault/openai"})
+      require("chatgpt").setup({
+        api_key_cmd = "ansible-vault view " .. vim.env.HOME .. "/.vault/openai",
+        actions_paths = {
+          vim.env.HOME .. "/.config/lvim/options/chatgpt.json",
+        },
+      })
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-telescope/telescope.nvim"
     }
+  },
+  {
+    "mandos/nvim-helm",
+    config = function()
+      require("helm").setup()
+    end,
   }
 }
