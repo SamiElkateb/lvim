@@ -1,4 +1,5 @@
 require('helpers.project-config')
+require('helpers.show-non-ascii')
 require('options')
 require('plugins')
 require('keymaps')
@@ -14,9 +15,9 @@ require('plugins.project-config')
 
 require('dap.base')
 require('lsp.base')
+require('lsp.c')
 
 require('format.base')
 require('lint.base')
 
 require('standard.commands')
-

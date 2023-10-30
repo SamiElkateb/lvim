@@ -26,14 +26,16 @@ local opts = {
 local mappings = {
   i = {
     name = "Copilot",
+    d = { ':Copilot! detach <cr>:Copilot! disable <cr>', "Disable" },
+    e = { ':Copilot! attach <cr>:Copilot! enable <cr>', "Enable" },
     h = {  function() copilot_suggestion.is_visible() end, "Is visible" },
     t = {  function() copilot_suggestion.toggle_auto_trigger() end, "Toggle" },
     j = {  function() copilot_suggestion.toggle_auto_trigger() end, "Next" },
     k = {  function() copilot_suggestion.toggle_auto_trigger() end, "Prev" },
   },
 }
-whichkey.register(mappings, opts)
 
+whichkey.register(mappings, opts)
 -- require("copilot.suggestion").is_visible()
 -- require("copilot.suggestion").accept(modifier)
 -- require("copilot.suggestion").accept_word()
@@ -77,16 +79,18 @@ copilot.setup({
     },
   },
   filetypes = {
-    yaml = false,
-    markdown = false,
-    help = false,
-    gitcommit = false,
-    gitrebase = false,
-    hgcommit = false,
-    svn = false,
-    cvs = false,
-    ["."] = false,
+    -- yaml = false,
+    -- markdown = false,
+    -- help = false,
+    -- gitcommit = false,
+    -- gitrebase = false,
+    -- hgcommit = false,
+    -- svn = false,
+    -- cvs = false,
+    -- ["."] = false,
+    ["*"] = false,
   },
   copilot_node_command = 'node', -- Node.js version must be > 16.x
   server_opts_overrides = {},
 })
+

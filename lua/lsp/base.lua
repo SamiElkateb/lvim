@@ -9,6 +9,7 @@ lvim.lsp.installer.setup.ensure_installed = {
 
   -- java
   "jdtls"
+
 }
 require('lsp.commands')
 

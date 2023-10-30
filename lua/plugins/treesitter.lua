@@ -32,14 +32,3 @@ local treesitter_parsers_status, treesitter_parsers = pcall(require, "nvim-trees
 if not treesitter_parsers_status then
   return
 end
-
-
-local parser_config = treesitter_parsers.get_parser_configs()
-parser_config.gotmpl = {
-  install_info = {
-    url = "https://github.com/ngalaiko/tree-sitter-go-template",
-    files = {"src/parser.c"}
-  },
-  filetype = "gotmpl",
-  used_by = {"gohtmltmpl", "gotexttmpl", "gotmpl", "yaml"}
-}
