@@ -38,7 +38,7 @@ local on_attach = function(client, bufnr)
   keymap.set("n", "<leader>lj", vim.diagnostic.goto_next, opts)                -- jump to next diagnostic in buffer
   keymap.set("n", "<leader>la", vim.lsp.buf.code_action, opts)                 -- see available code actions
   keymap.set({ "n", "v" }, "<leader>la", vim.lsp.buf.code_action, opts)        -- see available code actions, in visual mode will apply to selection
-  keymap.set("n", "<leader>lr", ":IncRename ", opts)                           -- smart rename
+  -- keymap.set("n", "<leader>lr", ":IncRename ", opts)                           -- smart rename
 
   keymap.set("n", "gR", "<cmd>Telescope lsp_references<CR>", opts)             -- show definition, references
   keymap.set("n", "gD", vim.lsp.buf.declaration, opts)                         -- got to declaration
@@ -78,3 +78,17 @@ lspconfig["yamlls"].setup {
   }
 }
 
+lspconfig["eslint"].setup({
+  capabilities = capabilities,
+  on_attach = on_attach
+})
+
+require('lspconfig').tsserver.setup{
+  filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
+  init_options = {
+    hostInfo = "lunarvim",
+    preferences = {
+      checkJs = true, -- <-- ensures JS files are checked
+    },
+  },
+}
