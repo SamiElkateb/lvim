@@ -83,7 +83,7 @@ lspconfig["eslint"].setup({
   on_attach = on_attach
 })
 
-require('lspconfig').tsserver.setup{
+lspconfig.tsserver.setup{
   filetypes = { "typescript", "typescriptreact", "javascript", "javascriptreact" },
   init_options = {
     hostInfo = "lunarvim",
@@ -92,3 +92,8 @@ require('lspconfig').tsserver.setup{
     },
   },
 }
+
+lspconfig.pyright.setup({
+  on_attach = require("lvim.lsp").common_on_attach,
+  capabilities = require("lvim.lsp").common_capabilities(),
+})
