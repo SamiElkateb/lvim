@@ -45,6 +45,29 @@ lvim.plugins = {
   },
   { "mfussenegger/nvim-dap-python" },
   { "tpope/vim-surround" },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "InsertEnter",  -- lazy load when entering insert mode
+  --   config = function()
+  --     require("copilot").setup({
+  --       suggestion = {
+  --         enabled = true,       -- enable ghost text
+  --         auto_trigger = true,  -- show suggestions automatically
+  --         keymap = {
+  --           -- accept = "<Tab>",   -- Alt+L to accept suggestion
+  --           -- next = "<M-]>",     -- cycle next suggestion
+  --           -- prev = "<M-[>",     -- cycle previous suggestion
+  --           -- dismiss = "<C-]>",  -- dismiss suggestion
+  --         },
+  --       },
+  --       panel = { enabled = false },  -- disable the suggestion panel
+  --       filetypes = { ["*"] = true }, -- enable for all filetypes
+  --     })
+
+  --     -- optional: change ghost text highlight color
+  --     vim.api.nvim_set_hl(0, "CopilotSuggestion", { fg = "#555555" })
+  --   end,
+  -- },
   {
     "zbirenbaum/copilot-cmp",
     event = "InsertEnter",
@@ -52,11 +75,11 @@ lvim.plugins = {
     config = function()
       vim.defer_fn(function()
         require("copilot").setup(
-          {
-            filetypes = {
-              ["*"] = false, 
-            },
-          }
+          -- {
+          --   filetypes = {
+          --     ["*"] = false, 
+          --   },
+          -- }
         )                              -- https://github.com/zbirenbaum/copilot.lua/blob/master/README.md#setup-and-configuration
         require("copilot_cmp").setup() -- https://github.com/zbirenbaum/copilot-cmp/blob/master/README.md#configuration
       end, 100)

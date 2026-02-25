@@ -36,14 +36,14 @@ local mappings = {
 }
 
 whichkey.register(mappings, opts)
--- require("copilot.suggestion").is_visible()
--- require("copilot.suggestion").accept(modifier)
--- require("copilot.suggestion").accept_word()
--- require("copilot.suggestion").accept_line()
--- require("copilot.suggestion").next()
--- require("copilot.suggestion").prev()
--- require("copilot.suggestion").dismiss()
--- require("copilot.suggestion").toggle_auto_trigger()
+require("copilot.suggestion").is_visible()
+require("copilot.suggestion").accept(modifier)
+require("copilot.suggestion").accept_word()
+require("copilot.suggestion").accept_line()
+require("copilot.suggestion").next()
+require("copilot.suggestion").prev()
+require("copilot.suggestion").dismiss()
+require("copilot.suggestion").toggle_auto_trigger()
 
 -- copilot_suggestion
 
@@ -79,16 +79,16 @@ copilot.setup({
     },
   },
   filetypes = {
-    -- yaml = false,
-    -- markdown = false,
-    -- help = false,
-    -- gitcommit = false,
-    -- gitrebase = false,
-    -- hgcommit = false,
-    -- svn = false,
-    -- cvs = false,
-    -- ["."] = false,
-    ["*"] = false,
+    yaml = false,
+    markdown = false,
+    help = false,
+    gitcommit = false,
+    gitrebase = false,
+    hgcommit = false,
+    svn = false,
+    cvs = false,
+    ["."] = false,
+    -- ["*"] = false,
   },
   copilot_node_command = 'node', -- Node.js version must be > 16.x
   server_opts_overrides = {},
